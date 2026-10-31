@@ -158,7 +158,7 @@ class ImportData:
                         gender varchar, 
                         purchase_datetime date, 
                         purchase_time_as_seconds_from_midnight integer, 
-                        product_id integer, 
+                        product_id varchar, 
                         quantity integer, 
                         price_per_item integer, 
                         discount_per_item integer, 
@@ -192,7 +192,6 @@ response = t.get_response()
 # Создаем экземляр класса ApiResponseProcessing и приводим данные к нужной форме
 r = ApiResponseProcessing()
 r_pars = r.pars_response(response)
-print(r_pars)
 
 # # Загружаем данные в базу данных
 ImportData.import_data(r_pars)
