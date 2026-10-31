@@ -4,6 +4,7 @@ import logging
 from datetime import datetime, timedelta
 import json
 import configparser
+import os
 
 
 # Параметры для подключения к API
@@ -12,8 +13,9 @@ params = {
         "date": datetime.strftime(datetime.now()- timedelta(days=1), "%Y-%m-%d")
         }
 
+dirname = os.path.dirname(__file__)
 config = configparser.ConfigParser()
-config.read("config.ini")
+config.read(os.path.join(dirname,"config.ini"))
 
 db_name = config['Datebase']['DBNAME']
 db_user = config['Datebase']['DBUSER']
